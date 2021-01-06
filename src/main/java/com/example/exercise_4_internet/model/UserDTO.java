@@ -13,10 +13,8 @@ public class UserDTO {
     private long id;
 
     @NotEmpty
-    @Min(2)
     private String username;
 
-    @Min(6)
     @NotEmpty
     private String password;
 
