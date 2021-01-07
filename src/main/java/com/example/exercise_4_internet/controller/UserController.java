@@ -29,6 +29,13 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(user.convertToDTO());
     }
 
+    @PutMapping(path = "user/{id}")
+    public ResponseEntity<UserDTO> update(@PathVariable Long id, @Valid @RequestBody UserDTO userDTO) {
+        userDTO.setId(id);
+        userService.save(userDTO.convertToEntity());
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(userDTO);
+    }
+
     @PostMapping(path = "/sign-up")
     public ResponseEntity<UserDTO> signUp(@Valid @RequestBody UserDTO userDTO) {
         User user = userService.singUp(userDTO.convertToEntity());
