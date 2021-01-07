@@ -14,13 +14,18 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDTO {
-    List<Role> roles;
     private long id;
+
     @NotEmpty
     private String username;
+
     @NotEmpty
     private String password;
+
     private String email;
+
+    List<Role> roles;
+
     private String token;
 
     public User convertToEntity() {

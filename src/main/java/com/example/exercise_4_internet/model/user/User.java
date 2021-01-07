@@ -28,11 +28,12 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    List<Role> roles;
     @Email
     @Column(nullable = false, unique = true)
     private String email;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    List<Role> roles;
 
     private String token;
 
